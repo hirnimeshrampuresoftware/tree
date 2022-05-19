@@ -31,13 +31,12 @@ jobs:
   wheel-x86_64:
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         python_tag: [cp36, cp37, cp38, cp39, cp310]
+        os_tag: [manylinux_x86_64, manylinux_aarch64]
         include:
           - os: windows-latest
             os_tag: win_amd64
-          - os: ubuntu-latest
-            os_tag: manylinux_x86_64
           - os: macos-latest
             os_tag: macosx_x86_64
       fail-fast: false            
