@@ -41,12 +41,16 @@ jobs:
           - os: macos-latest
             os_tag: macosx_x86_64
 
-    name: "wheel: ${{ matrix.python_tag }}-${{ matrix.os_tag }}"
+    name: "wheel: ${{ matrix.python_tag }}-${{ matrix.os_tag }}-${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
+
+      - name: Set up QEMU
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: docker/setup-qemu-action@v1
 
       - name: Install prerequisites
         run: |
