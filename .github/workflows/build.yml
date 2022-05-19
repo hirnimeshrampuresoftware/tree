@@ -38,6 +38,8 @@ jobs:
             os_tag: win_amd64
           - os: ubuntu-latest
             os_tag: manylinux_x86_64
+          - os: ubuntu-latest
+            os_tag: manylinux_aarch64            
           - os: macos-latest
             os_tag: macosx_x86_64
 
